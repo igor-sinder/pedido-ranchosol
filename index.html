@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cachaça Rancho do Sol - Catálogo e Pedidos</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header class="independent-header">
+        <div class="container">
+            <a href="#" class="logo">Cachaça Rancho do Sol - Catálogo</a>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-hero" style="background-image: url('images/hero-catalogo.jpg');">
+            <div class="page-hero-content">
+                <h1>Nosso Catálogo de Cachaças</h1>
+                <p>Escolha suas cachaças favoritas e monte seu pedido de forma fácil e rápida.</p>
+            </div>
+        </section>
+
+        <section class="catalog-section section-padding bg-light-gray">
+            <div class="container">
+                <h2 class="text-center">Informações do Comprador</h2>
+                <form id="order-form" class="client-form" action="https://formspree.io/f/mvgrrjgy" method="POST">
+                    <div class="form-group">
+                        <label for="client-name">Nome / Razão Social:</label>
+                        <input type="text" id="client-name" name="Nome / Razão Social" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="client-doc">CPF / CNPJ:</label>
+                        <input type="text" id="client-doc" name="CPF / CNPJ" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="client-whatsapp">WhatsApp:</label>
+                        <input type="tel" id="client-whatsapp" name="WhatsApp" placeholder="(XX) XXXXX-XXXX" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="client-phone">Telefone (Opcional):</label>
+                        <input type="tel" id="client-phone" name="Telefone">
+                    </div>
+                    <div class="form-group">
+                        <label for="client-email">Email:</label>
+                        <input type="email" id="client-email" name="_replyto" required> </div>
+                    <div class="form-group">
+                        <label for="client-responsible">Nome do Responsável pela Compra:</label>
+                        <input type="text" id="client-responsible" name="Nome do Responsável pela Compra" required>
+                    </div>
+                    <div class="form-group full-width">
+                        <label for="client-street">Rua:</label>
+                        <input type="text" id="client-street" name="Rua" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="client-number">Número:</label>
+                        <input type="text" id="client-number" name="Número" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="client-complement">Complemento (Opcional):</label>
+                        <input type="text" id="client-complement" name="Complemento">
+                    </div>
+                    <div class="form-group">
+                        <label for="client-neighborhood">Bairro:</label>
+                        <input type="text" id="client-neighborhood" name="Bairro" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="client-city">Cidade:</label>
+                        <input type="text" id="client-city" name="Cidade" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="client-cep">CEP:</label>
+                        <input type="text" id="client-cep" name="CEP" placeholder="XXXXX-XXX" required>
+                    </div>
+                    <div class="form-group full-width">
+                        <label for="client-reference">Ponto de Referência (Opcional):</label>
+                        <textarea id="client-reference" name="Ponto de Referência" rows="3"></textarea>
+                    </div>
+                    <div class="form-group full-width">
+                        <label for="payment-method">Forma de Pagamento:</label>
+                        <select id="payment-method" name="Forma de Pagamento" required>
+                            <option value="">Selecione a forma de pagamento</option>
+                            <option value="Boleto Bancário">Boleto Bancário</option>
+                            <option value="Cartão de Crédito/Débito">Cartão de Crédito/Débito</option>
+                            <option value="PIX">PIX</option>
+                            <option value="Dinheiro">Dinheiro</option>
+                        </select>
+                    </div>
+
+                    <input type="hidden" name="Itens do Pedido" id="order-items-hidden">
+                    <input type="hidden" name="Valor Total do Pedido" id="order-total-hidden">
+
+                    <input type="hidden" name="_subject" value="Novo Pedido - Cachaça Rancho do Sol">
+
+                    <button type="submit" class="btn btn-large" id="submit-order-form" style="display: none;">Enviar Pedido por E-mail</button>
+                    </form>
+
+                <h2 class="text-center">Selecione Seus Produtos</h2>
+                <div class="product-catalog-grid">
+                    <div class="product-item">
+                        <img src="images/cachaca-prata-garrafa-importada.jpg" alt="Cachaça Prata Garrafa Importada">
+                        <h3>Cachaça Prata</h3>
+                        <p>Leve e cristalina, ideal para drinks.</p>
+                        <div class="product-options">
+                            <div class="option-group">
+                                <label for="prata-importada-qty">Garrafa Importada (R$ 85,00)</label>
+                                <input type="number" id="prata-importada-qty" data-product-name="Cachaça Prata Garrafa Importada" data-unit-price="85.00" min="0" value="0" class="product-qty">
+                            </div>
+                            <div class="option-group">
+                                <label for="prata-nacional-qty">Garrafa Nacional (R$ 70,00)</label>
+                                <input type="number" id="prata-nacional-qty" data-product-name="Cachaça Prata Garrafa Nacional" data-unit-price="70.00" min="0" value="0" class="product-qty">
+                            </div>
+                            <div class="option-group">
+                                <label for="prata-mini-qty">Garrafa Mini (R$ 30,00)</label>
+                                <input type="number" id="prata-mini-qty" data-product-name="Cachaça Prata Garrafa Mini" data-unit-price="30.00" min="0" value="0" class="product-qty">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-item">
+                        <img src="images/cachaca-ouro-carvalho-garrafa-nacional.jpg" alt="Cachaça Ouro Carvalho Garrafa Nacional">
+                        <h3>Cachaça Ouro Carvalho</h3>
+                        <p>Envelhecida em barris de carvalho, sabor marcante.</p>
+                        <div class="product-options">
+                            <div class="option-group">
+                                <label for="carvalho-importada-qty">Garrafa Importada (R$ 85,00)</label>
+                                <input type="number" id="carvalho-importada-qty" data-product-name="Cachaça Ouro Carvalho Garrafa Importada" data-unit-price="85.00" min="0" value="0" class="product-qty">
+                            </div>
+                            <div class="option-group">
+                                <label for="carvalho-nacional-qty">Garrafa Nacional (R$ 70,00)</label>
+                                <input type="number" id="carvalho-nacional-qty" data-product-name="Cachaça Ouro Carvalho Garrafa Nacional" data-unit-price="70.00" min="0" value="0" class="product-qty">
+                            </div>
+                            <div class="option-group">
+                                <label for="carvalho-mini-qty">Garrafa Mini (R$ 30,00)</label>
+                                <input type="number" id="carvalho-mini-qty" data-product-name="Cachaça Ouro Carvalho Garrafa Mini" data-unit-price="30.00" min="0" value="0" class="product-qty">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-item">
+                        <img src="images/cachaca-ouro-amburana-garrafa-nacional.jpg" alt="Cachaça Ouro Amburana Garrafa Nacional">
+                        <h3>Cachaça Ouro Amburana</h3>
+                        <p>Nossa joia rara, um deleite para os paladares exigentes.</p>
+                        <div class="product-options">
+                            <div class="option-group">
+                                <label for="amburana-importada-qty">Garrafa Importada (R$ 85,00)</label>
+                                <input type="number" id="amburana-importada-qty" data-product-name="Cachaça Ouro Amburana Garrafa Importada" data-unit-price="85.00" min="0" value="0" class="product-qty">
+                            </div>
+                            <div class="option-group">
+                                <label for="amburana-nacional-qty">Garrafa Nacional (R$ 70,00)</label>
+                                <input type="number" id="amburana-nacional-qty" data-product-name="Cachaça Ouro Amburana Garrafa Nacional" data-unit-price="70.00" min="0" value="0" class="product-qty">
+                            </div>
+                            <div class="option-group">
+                                <label for="amburana-mini-qty">Garrafa Mini (R$ 30,00)</label>
+                                <input type="number" id="amburana-mini-qty" data-product-name="Cachaça Ouro Amburana Garrafa Mini" data-unit-price="30.00" min="0" value="0" class="product-qty">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h2 class="text-center">Resumo do Pedido</h2>
+                <div class="order-summary">
+                    <table id="order-table">
+                        <thead>
+                            <tr>
+                                <th>Produto</th>
+                                <th>Valor Unitário</th>
+                                <th>Quantidade</th>
+                                <th>Valor Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr id="no-items-row">
+                                <td colspan="4" style="text-align: center; color: #777;">Nenhum item selecionado ainda.</td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="3" class="total-label">Total do Pedido:</td>
+                                <td class="total-amount" id="order-grand-total">R$ 0,00</td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+
+                <div class="text-center order-actions-buttons">
+                    <button type="button" class="btn btn-large" id="trigger-email-submit">Enviar Pedido por E-mail</button>
+                    <button type="button" class="btn btn-large btn-whatsapp" id="send-whatsapp-btn">Enviar Pedido por WhatsApp</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="independent-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section about">
+                    <h3>Cachaça Rancho do Sol</h3>
+                    <p>Qualidade, tradição e paixão em cada garrafa. Saboreie a verdadeira cachaça artesanal.</p>
+                </div>
+                <div class="footer-section contact">
+                    <h3>Contato</h3>
+                    <p><i class="fas fa-phone"></i> (22) 98104-7566</p>
+                    <p><i class="fas fa-envelope"></i> contato@minhacachacaria.com.br</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Vila Homero Ecard, Santa Rita da Floresta</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Cantagalo, RJ, Brasil</p>
+                    <div class="social-links">
+                        <a href="#" target="_blank"><img src="images/icon-facebook.png" alt="Facebook"></a>
+                        <a href="#" target="_blank"><img src="images/icon-instagram.png" alt="Instagram"></a>
+                        <a href="#" target="_blank"><img src="images/icon-youtube.png" alt="YouTube"></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; <span id="current-year-independent"></span> Cachaça Rancho do Sol. Todos os direitos reservados.
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/catalogo.js"></script>
+</body>
+</html>
